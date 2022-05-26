@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSA 강의일정</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/rrule@2.6.9/dist/es5/rrule.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/rrule@5.11.0/main.global.min.js"></script>
+
+    <!-- 일정 입력 스크립트 -->
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+          var calendarEl = document.getElementById('calendar');
+      
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+            height: '100%',
+            locales: 'ko',
+
+            initialView: 'dayGridMonth',
+            initialDate: '2022-06-01',
+            
+            headerToolbar: {
+              left: 'prev,next today',
+              center: 'title',
+              right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+            },
+            expandRows: true,
+            navLinks: false, // can click day/week names to navigate views
+            editable: false, // 일정 수정
+            selectable: false, // 일정 선택
+            nowIndicator: true, // 현재 시간 표시
+            dayMaxEvents: true, // allow "more" link when too many events
+            displayEventTime: false, // 시작시간 view
+            businessHours: {
+                daysOfWeek: [ 1,2,3,4,5 ],
+                startTime: '12:00',
+                endTime: '22:00',
+            },
+            events: [
+                // byweekday : 'su', 'mo', 'tu', 'we', 'th', 'fr', 'sa'
+                // 입문일정 : color - #a31a2a b8505c cd858d e3babf
+              {
+                  title: '입문 227기',
+                  rrule: {
+                      dtstart: '2022-06-11T12:00:00',
+                      until: '2022-06-11T20:30:00',
+                      freq: 'weekly',
+                      byweekday: ['sa']
+                  },
+                  // exdate: ['2022-05-23T12:00:00'],
+                  color: '#a31a2a',
+                  display: 'block',
+                  url: 'https://wsaacademy.com/goods/view?no=3859'
+              },
+              {
+                  title: '입문 228기',
+                  rrule: {
+                      dtstart: '2022-06-25T12:00:00',
+                      until: '2022-06-25T20:30:00',
+                      freq: 'weekly',
+                      byweekday: ['sa']
+                  },
+                  // exdate: ['2022-05-23T12:00:00'],
+                  color: '#b8505c',
+                  display: 'block',
+                  url: 'https://wsaacademy.com/goods/view?no=3861'
+              },
+                // 중급일정 : color - #004ba8 3c75bc 779ed1 b2c8e5
+              {
+                  title: '중급 431기',
+                  rrule: {
+                      dtstart: '2022-06-07T19:00:00',
+                      until: '2022-07-26T22:00:00',
+                      freq: 'weekly',
+                      byweekday: ['tu']
+                  },
+                  // exdate: ['2022-05-23T12:00:00'],
+                  color: '#004ba8',
+                  display: 'block',
+                  url: 'https://wsaacademy.com/goods/view?no=3838'
+              },
+              {
+                  title: '중급 432기 Web *이론',
+                  rrule: {
+                      dtstart: '2022-06-09T19:30:00',
+                      until: '2022-07-14T22:00:00',
+                      freq: 'weekly',
+                      byweekday: ['th']
+                  },
+                  // exdate: ['2022-05-23T12:00:00'],
+                  color: '#3c75bc',
+                  display: 'block',
+                  url: 'https://wsaacademy.com/goods/view?no=3839'
+              },
+              {
+                  title: '중급 432기 Web *시음',
+                  rrule: {
+                      dtstart: '2022-07-23T14:00:00',
+                      until: '2022-07-23T17:00:00',
+                      freq: 'weekly',
+                      byweekday: ['sa']
+                  },
+                  // exdate: ['2022-05-23T12:00:00'],
+                  color: '#3c75bc',
+                  display: 'block',
+                  url: 'https://wsaacademy.com/goods/view?no=3839'
+              },
+              {
+                  title: '중급 436기',
+                  rrule: {
+                      dtstart: '2022-06-23T19:00:00',
+                      until: '2022-08-11T22:00:00',
+                      freq: 'weekly',
+                      byweekday: ['tu','th']
+                  },
+                  // exdate: ['2022-05-23T12:00:00'],
+                  color: '#779ed1',
+                  display: 'block',
+                  url: 'https://wsaacademy.com/goods/view?no=3860'
+              },
+              {
+                  title: '중급 434기',
+                  rrule: {
+                      dtstart: '2022-06-28T14:00:00',
+                      until: '2022-07-21T17:00:00',
+                      freq: 'weekly',
+                      byweekday: ['tu','th']
+                  },
+                  // exdate: ['2022-05-23T12:00:00'],
+                  color: '#b2c8e5',
+                  display: 'block',
+                  url: 'https://wsaacademy.com/goods/view?no=3840'
+              },
+                // 고급일정 : color - #007318 3c944e 77b483 b2d5b9
+              {
+                  title: '고급 426기 Web *이론',
+                  rrule: {
+                      dtstart: '2022-05-18T19:30:00',
+                      until: '2022-07-30T22:00:00',
+                      freq: 'weekly',
+                      byweekday: ['we']
+                  },
+                  // exdate: ['2022-05-23T12:00:00'],
+                  color: '#007318',
+                  display: 'block',
+                  url: 'https://wsaacademy.com/goods/view?no=3818'
+              },
+              {
+                  title: '고급 426기 Web *시음',
+                  rrule: {
+                      dtstart: '2022-06-11T11:00:00',
+                      until: '2022-07-30T17:00:00',
+                      freq: 'weekly',
+                      byweekday: ['sa']
+                  },
+                  exdate: ['2022-06-18T11:00:00','2022-06-25T11:00:00','2022-06-18T11:00:00','2022-07-02T11:00:00','2022-07-16T11:00:00','2022-07-13T11:00:00'],
+                  color: '#007318',
+                  display: 'block',
+                  url: 'https://wsaacademy.com/goods/view?no=3818'
+              },
+              {
+                  title: '고급 435기',
+                  rrule: {
+                      dtstart: '2022-07-11T14:00:00',
+                      until: '2022-08-31T22:00:00',
+                      freq: 'weekly',
+                      byweekday: ['mo','we']
+                  },
+                  exdate: ['2022-08-15T14:00:00'],
+                  color: '#3c944e',
+                  display: 'block',
+                  url: 'https://wsaacademy.com/goods/view?no=3842'
+              },
+              {
+                  title: '고급 438기',
+                  rrule: {
+                      dtstart: '2022-07-26T19:00:00',
+                      until: '2022-11-01T22:00:00',
+                      freq: 'weekly',
+                      byweekday: ['tu']
+                  },
+                  // exdate: ['2022-05-23T12:00:00'],
+                  color: '#77b483',
+                  display: 'block',
+                  url: 'https://wsaacademy.com/goods/view?no=3854'
+              },
+            ]
+          });
+          calendar.render();
+        });
+    </script>
+    <style>
+        html,body {
+            overflow: hidden; /* don't do scrollbars */
+        }
+        #calendar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        .fc-header-toolbar {
+        /*
+        the calendar will be butting up against the edges,
+        but let's scoot in the header's buttons
+        */
+        padding-top: 1em;
+        padding-left: 1em;
+        padding-right: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div id="calendar-container">
+        <div id="calendar"></div>
+    </div>
+</body>
+</html>
